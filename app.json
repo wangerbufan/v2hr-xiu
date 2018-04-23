@@ -17,7 +17,7 @@
      },
     "CADDY_VER": {
        "description": "输入caddy 版本",
-       "value": "0.10.13"
+       "value": "0.10.14"
      },
     "CADDY_ROOT": {
        "description": "配置caddy 网站root路径",
@@ -32,8 +32,8 @@
        "value": "/mytestws"
      },
     "V2_WS_IP": {
-       "description": "输入v2ray ws 监听的地址",
-       "value": "localhost"
+       "description": "输入v2ray ws 监听的地址 保持默认值",
+       "value": "127.0.0.1"
      },
     "V2_WS_PORT": {
        "description": "输入v2ray ws 监听的端口",
