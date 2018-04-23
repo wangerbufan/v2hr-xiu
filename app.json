@@ -3,10 +3,10 @@
   "description": "deploy V2ray to Heroku.",
   "keywords": ["V2ray"],
   "env": {
-    "VER": {
+    "V2RAY_VER": {
        "description": "输入v2ray Core 版本",
-       "value": "3.15"
-     }, 
+       "value": "3.20"
+     },
     "UUID": {
        "description": "Vmess协议默认UUID，请输入自己的UUID",
        "value": "8fd6dadc-0d59-4ae7-93bb-e6b8a231c2c2"
@@ -14,6 +14,10 @@
     "V2RAY_RAY_BUFFER_SIZE": {
        "description": "每个连接的缓存大小，单位MB",
        "value": "10"
+     },
+    "CADDY_VER": {
+       "description": "输入caddy 版本",
+       "value": "0.10.13"
      }
   },
   "website": "https://github.com/wangyi2005/v2ray-heroku",
