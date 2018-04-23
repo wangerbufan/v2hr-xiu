@@ -13,7 +13,7 @@ if [ ! -f /caddybin/caddy_v$CADDY_VER ]; then
   mkdir /caddybin/caddy_v$CADDY_VER
   cd /caddybin/caddy_v$CADDY_VER
   wget -O caddy.tar.gz https://github.com/mholt/caddy/releases/download/v0.10.13/caddy_v$CADDY_VER_linux_amd64.tar.gz
-  tar -zxvf caddy.tar.gz 
+  tar xvf caddy.tar.gz 
   chmod +x caddy
 fi
 
