@@ -17,9 +17,16 @@ if [ ! -f /caddybin/caddy_v$CADDY_VER ]; then
   chmod +x caddy
 fi
 
+if [ ! -f $CADDY_ROOT ]; then
+  mkdir $CADDY_ROOT
+  cd $CADDY_ROOT
+  wget -O wallet.bitshares.org-gh-pages.zip https://github.com/bitshares/wallet.bitshares.org/archive/gh-pages.zip
+  unzip wallet.bitshares.org-gh-pages.zip
+fi
+
 cd /caddybin/caddy_v$CADDY_VER
 echo 0.0.0.0:$PORT { > HerokuCaddyfile
-echo root $CADDY_ROOT >> HerokuCaddyfile
+echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
 echo gzip $CADDY_GZIP >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
 echo forwardproxy { >> HerokuCaddyfile
