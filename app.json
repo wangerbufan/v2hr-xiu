@@ -31,6 +31,10 @@
        "description": "输入v2ray ws 的 path",
        "value": "/mytestws"
      },
+    "V2_WS_IP": {
+       "description": "输入v2ray ws 监听的地址",
+       "value": "localhost"
+     },
     "V2_WS_PORT": {
        "description": "输入v2ray ws 监听的端口",
        "value": "12345"
