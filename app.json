@@ -23,10 +23,6 @@
        "description": "配置caddy 网站root路径",
        "value": "/mytestweb"
      },
-    "CADDY_GZIP": {
-       "description": "配置caddy gzip",
-       "value": ""
-     },
     "CADDY_INDEX": {
        "description": "配置caddy index文件",
        "value": "index.html"
