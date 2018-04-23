@@ -26,22 +26,21 @@ if [ ! -d $CADDY_ROOT ]; then
   unzip wallet.bitshares.org-gh-pages.zip
 fi
 
-cd /caddybin/caddy_v$CADDY_VER
-echo 0.0.0.0:$PORT { > HerokuCaddyfile
-echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
-echo gzip >> HerokuCaddyfile
-echo index $CADDY_INDEX >> HerokuCaddyfile
-echo proxy $V2_WS_PATH 127.0.0.1:$V2_WS_PORT { >> HerokuCaddyfile
-echo websocket >> HerokuCaddyfile
-echo header_upstream -Origin >> HerokuCaddyfile
-echo } >> HerokuCaddyfile
-echo } >> HerokuCaddyfile
-./caddy -conf="HerokuCaddyfile" &
-
 cd /v2raybin/v2ray-v$V2RAY_VER-linux-64
 echo -e -n "$CONFIG_JSON1" > config.json
 echo -e -n "$V2_WS_PORT" >> config.json
 echo -e -n "$CONFIG_JSON2" >> config.json
 echo -e -n "$UUID" >> config.json
 echo -e -n "$CONFIG_JSON3" >> config.json
-./v2ray
+./v2ray &
+
+cd /caddybin/caddy_v$CADDY_VER
+echo 0.0.0.0:$PORT { > HerokuCaddyfile
+echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
+echo gzip >> HerokuCaddyfile
+echo index $CADDY_INDEX >> HerokuCaddyfile
+echo proxy $V2_WS_PATH $V2_WS_IP:$V2_WS_PORT { >> HerokuCaddyfile
+echo websocket >> HerokuCaddyfile
+echo } >> HerokuCaddyfile
+echo } >> HerokuCaddyfile
+./caddy -conf="HerokuCaddyfile"
