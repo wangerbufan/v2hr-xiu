@@ -27,7 +27,7 @@ fi
 cd /caddybin/caddy_v$CADDY_VER
 echo 0.0.0.0:$PORT { > HerokuCaddyfile
 echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
-echo gzip $CADDY_GZIP >> HerokuCaddyfile
+echo gzip >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
 echo forwardproxy { >> HerokuCaddyfile
 echo basicauth $CADDY_H2_PROXY_USER $CADDY_H2_PROXY_PWD >> HerokuCaddyfile
