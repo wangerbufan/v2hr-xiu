@@ -27,14 +27,6 @@
        "description": "配置caddy index文件",
        "value": "index.html"
      },
-    "CADDY_H2_PROXY_USER": {
-       "description": "输入caddy http2代理的用户名",
-       "value": "user"
-     },
-    "CADDY_H2_PROXY_PWD": {
-       "description": "输入caddy http2代理的用户密码",
-       "value": "pwd"
-     },
     "V2_WS_PATH": {
        "description": "输入v2ray ws 的 path",
        "value": "/mytestws"
