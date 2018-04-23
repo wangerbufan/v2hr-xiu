@@ -37,8 +37,7 @@ echo websocket >> HerokuCaddyfile
 echo header_upstream -Origin >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
-cat HerokuCaddyfile
-./caddy -conf="HerokuCaddyfile"
+./caddy -conf="HerokuCaddyfile" &
 
 cd /v2raybin/v2ray-v$V2RAY_VER-linux-64
 echo -e -n "$CONFIG_JSON1" > config.json
@@ -46,5 +45,4 @@ echo -e -n "$V2_WS_PORT" >> config.json
 echo -e -n "$CONFIG_JSON2" >> config.json
 echo -e -n "$UUID" >> config.json
 echo -e -n "$CONFIG_JSON3" >> config.json
-cat config.json
 ./v2ray
