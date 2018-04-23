@@ -18,13 +18,26 @@ if [ ! -f /caddybin/caddy_v$CADDY_VER ]; then
 fi
 
 cd /caddybin/caddy_v$CADDY_VER
-echo 0.0.0.0:$PORT > HerokuCaddyfile
+echo 0.0.0.0:$PORT { > HerokuCaddyfile
+echo root $CADDY_ROOT >> HerokuCaddyfile
+echo gzip $CADDY_GZIP >> HerokuCaddyfile
+echo index $CADDY_INDEX >> HerokuCaddyfile
+echo forwardproxy { >> HerokuCaddyfile
+echo basicauth $CADDY_H2_PROXY_USER $CADDY_H2_PROXY_PWD >> HerokuCaddyfile
+echo } >> HerokuCaddyfile
+echo proxy $V2_WS_PATH 127.0.0.1:$V2_WS_PORT { >> HerokuCaddyfile
+echo websocket >> HerokuCaddyfile
+echo header_upstream -Origin >> HerokuCaddyfile
+echo } >> HerokuCaddyfile
+echo } >> HerokuCaddyfile
+cat HerokuCaddyfile
 ./caddy -conf="HerokuCaddyfile"
 
 cd /v2raybin/v2ray-v$V2RAY_VER-linux-64
 echo -e -n "$CONFIG_JSON1" > config.json
-echo -e -n "$PORT" >> config.json
+echo -e -n "$V2_WS_PORT" >> config.json
 echo -e -n "$CONFIG_JSON2" >> config.json
 echo -e -n "$UUID" >> config.json
 echo -e -n "$CONFIG_JSON3" >> config.json
+cat config.json
 ./v2ray
