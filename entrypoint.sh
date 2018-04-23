@@ -1,4 +1,4 @@
-if [ ! -f /v2raybin/v2ray-v$V2RAY_VER-linux-64 ]; then
+if [ ! -d /v2raybin/v2ray-v$V2RAY_VER-linux-64 ]; then
   rm -rf /v2raybin
   mkdir /v2raybin
   cd /v2raybin
@@ -9,16 +9,17 @@ if [ ! -f /v2raybin/v2ray-v$V2RAY_VER-linux-64 ]; then
   chmod +x v2ctl
 fi
 
-if [ ! -f /caddybin/caddy_v$CADDY_VER ]; then
+if [ ! -d /caddybin/caddy_v$CADDY_VER ]; then
   rm -rf /caddybin
+  mkdir /caddybin
   mkdir /caddybin/caddy_v$CADDY_VER
   cd /caddybin/caddy_v$CADDY_VER
-  wget -O caddy.tar.gz https://github.com/mholt/caddy/releases/download/v0.10.13/caddy_v$CADDY_VER_linux_amd64.tar.gz
+  wget -O caddy.tar.gz https://github.com/mholt/caddy/releases/download/v$CADDY_VER/caddy_v$CADDY_VER'_linux_amd64.tar.gz'
   tar xvf caddy.tar.gz 
   chmod +x caddy
 fi
 
-if [ ! -f $CADDY_ROOT ]; then
+if [ ! -d $CADDY_ROOT ]; then
   mkdir $CADDY_ROOT
   cd $CADDY_ROOT
   wget -O wallet.bitshares.org-gh-pages.zip https://github.com/bitshares/wallet.bitshares.org/archive/gh-pages.zip
@@ -30,9 +31,6 @@ echo 0.0.0.0:$PORT { > HerokuCaddyfile
 echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
 echo gzip >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
-echo forwardproxy { >> HerokuCaddyfile
-echo basicauth $CADDY_H2_PROXY_USER $CADDY_H2_PROXY_PWD >> HerokuCaddyfile
-echo } >> HerokuCaddyfile
 echo proxy $V2_WS_PATH 127.0.0.1:$V2_WS_PORT { >> HerokuCaddyfile
 echo websocket >> HerokuCaddyfile
 echo header_upstream -Origin >> HerokuCaddyfile
