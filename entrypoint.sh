@@ -1,5 +1,6 @@
 if [ ! -f /v2raybin/v2ray-v$V2RAY_VER-linux-64 ]; then
   rm -rf /v2raybin
+  mkdir /v2raybin
   cd /v2raybin
   wget -O v2ray.zip http://github.com/v2ray/v2ray-core/releases/download/v$V2RAY_VER/v2ray-linux-64.zip
   unzip v2ray.zip 
