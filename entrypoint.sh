@@ -28,7 +28,7 @@ fi
 
 cd /v2raybin/v2ray-v$V2RAY_VER-linux-64
 echo -e -n "$CONFIG_JSON1" > config.json
-echo -e -n "$V2_WS_PORT" >> config.json
+echo -e -n "$V2_WS_PORT,\"listen\":\"$V2_WS_IP\"" >> config.json
 echo -e -n "$CONFIG_JSON2" >> config.json
 echo -e -n "$UUID" >> config.json
 echo -e -n "$CONFIG_JSON3" >> config.json
