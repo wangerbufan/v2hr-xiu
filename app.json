@@ -29,7 +29,7 @@
      },
     "CADDY_LS_IP": {
        "description": "配置caddy 监听的ip 保持默认值",
-       "value": "127.0.0.1"
+       "value": "0.0.0.0"
      },
     "V2_WS_PATH": {
        "description": "输入v2ray ws 的 path",
