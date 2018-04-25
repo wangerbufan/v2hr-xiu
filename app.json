@@ -27,6 +27,10 @@
        "description": "配置caddy index文件",
        "value": "index.html"
      },
+    "CADDY_LS_IP": {
+       "description": "配置caddy 监听的ip 保持默认值",
+       "value": "127.0.0.1"
+     },
     "V2_WS_PATH": {
        "description": "输入v2ray ws 的 path",
        "value": "/mytestws"
@@ -40,7 +44,7 @@
        "value": "12345"
      }
   },
-  "website": "https://github.com/wangyi2005/v2ray-heroku",
-  "repository": "https://github.com/wangyi2005/v2ray-heroku",
+  "website": "https://github.com/zusrt/v2ray-heroku",
+  "repository": "https://github.com/zusrt/v2ray-heroku",
   "stack": "container"
  }
