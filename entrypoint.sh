@@ -14,7 +14,7 @@ if [ ! -d /caddybin/caddy_v$CADDY_VER ]; then
   mkdir /caddybin
   mkdir /caddybin/caddy_v$CADDY_VER
   cd /caddybin/caddy_v$CADDY_VER
-  wget -O caddy.tar.gz https://caddyserver.com/download/linux/amd64?plugins=http.forwardproxy&license=personal
+  wget -O caddy.tar.gz 'https://caddyserver.com/download/linux/amd64?plugins=http.forwardproxy&license=personal'
   tar xvf caddy.tar.gz 
   chmod +x caddy
 fi
