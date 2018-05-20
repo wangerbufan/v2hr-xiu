@@ -42,7 +42,6 @@ echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
 echo gzip >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
 echo proxy $V2_WS_PATH http://$V2_WS_IP:$V2_WS_PORT { >> HerokuCaddyfile
-echo header_upstream Host "yourdomain.com" >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 ./caddy -conf="HerokuCaddyfile"
