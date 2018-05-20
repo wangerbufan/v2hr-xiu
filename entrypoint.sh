@@ -42,7 +42,7 @@ echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
 echo gzip >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
 echo forwardproxy { >> HerokuCaddyfile
-echo basicauth h2User testPWD >> HerokuCaddyfile
+echo     basicauth user1 0NtCL2JPJBgPPMmlPcJ >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 echo proxy $V2_WS_PATH $V2_WS_IP:$V2_WS_PORT { >> HerokuCaddyfile
 echo websocket >> HerokuCaddyfile
