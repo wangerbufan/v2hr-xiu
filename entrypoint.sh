@@ -34,6 +34,7 @@ echo -e -n "$UUID" >> config.json
 echo -e -n "$CONFIG_JSON3" >> config.json
 echo -e -n "$V2_WS_PATH" >> config.json
 echo -e -n "$CONFIG_JSON4" >> config.json
+echo -e -n "$CONFIG_JSON5" >> config.json
 ./v2ray &
 
 cd /caddybin/caddy_v$CADDY_VER
