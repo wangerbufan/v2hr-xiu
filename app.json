@@ -1,7 +1,7 @@
 {
-  "name": "V2ray",
-  "description": "deploy V2ray to Heroku.",
-  "keywords": ["V2ray"],
+  "name": "CADDY",
+  "description": "deploy CADDY to Heroku.",
+  "keywords": ["CADDY"],
   "env": {
     "CADDY_VER": {
        "description": "输入caddy 版本",
@@ -28,11 +28,11 @@
        "value": "127.0.0.1"
      },
     "V2_WS_PORT": {
-       "description": "输入v2ray ws 监听的端口",
+       "description": "输入CADDY ws 监听的端口",
        "value": "12345"
      }
   },
-  "website": "https://github.com/sstutanota/v2ray-heroku",
-  "repository": "https://github.com/sstutanota/v2ray-heroku",
+  "website": "https://github.com/sstutanota/CADDY-heroku",
+  "repository": "https://github.com/sstutanota/CADDY-heroku",
   "stack": "container"
  }
