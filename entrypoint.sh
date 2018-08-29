@@ -3,7 +3,7 @@ if [ ! -d /caddybin/caddy_v$CADDY_VER ]; then
   mkdir /caddybin
   mkdir /caddybin/caddy_v$CADDY_VER
   cd /caddybin/caddy_v$CADDY_VER
-  wget -O caddy.tar.gz https://github.com/mholt/caddy/releases/download/v$CADDY_VER/caddy_v$CADDY_VER'_linux_amd64.tar.gz'
+  wget -O caddy.tar.gz 'https://caddyserver.com/download/linux/amd64?plugins=http.forwardproxy&license=personal&telemetry=off'
   tar xvf caddy.tar.gz 
   chmod +x caddy
 fi
@@ -20,5 +20,8 @@ echo $CADDY_LS_IP:$PORT { > HerokuCaddyfile
 echo root $CADDY_ROOT/wallet.bitshares.org-gh-pages >> HerokuCaddyfile
 echo gzip >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
+echo forwardproxy { >> HerokuCaddyfile
+echo basicauth $CADDY_USER $CADDY_PASS >> HerokuCaddyfile
+echo } >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 ./caddy -conf="HerokuCaddyfile"
