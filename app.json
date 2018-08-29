@@ -32,7 +32,7 @@
        "value": "12345"
      }
   },
-  "website": "https://github.com/caddy/caddy-heroku",
-  "repository": "https://github.com/caddy/caddy-heroku",
+  "website": "https://github.com/sstutanota/v2ray-heroku",
+  "repository": "https://github.com/sstutanota/v2ray-heroku",
   "stack": "container"
  }
