@@ -22,8 +22,6 @@ echo gzip >> HerokuCaddyfile
 echo index $CADDY_INDEX >> HerokuCaddyfile
 echo forwardproxy { >> HerokuCaddyfile
 echo basicauth $CADDY_USER $CADDY_PASS >> HerokuCaddyfile
-echo hide_ip >> HerokuCaddyfile
-echo hide_via >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 echo } >> HerokuCaddyfile
 ./caddy -conf="HerokuCaddyfile"
